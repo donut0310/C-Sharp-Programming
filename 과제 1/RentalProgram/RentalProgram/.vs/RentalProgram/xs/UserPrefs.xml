@@ -1,0 +1,28 @@
+﻿<Properties StartupConfiguration="{8EE2D995-8A83-41F9-A3CA-3F3059486148}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="User.cs">
+    <Files>
+      <File FileName="User.cs" Line="29" Column="10" />
+      <File FileName="Program.cs" Line="55" Column="49" />
+      <File FileName="Computer.cs" Line="40" Column="23" />
+      <File FileName="ComputerManager.cs" Line="287" Column="16" NotebookId="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="RentalProgram" expanded="True">
+            <Node name="RentalProgram" expanded="True">
+              <Node name="User.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.RentalProgram PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

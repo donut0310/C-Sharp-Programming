@@ -1,0 +1,15 @@
+/Users/donut/Desktop/Project1/RentalProgram/RentalProgram/bin/Debug/net5.0/RentalProgram.deps.json
+/Users/donut/Desktop/Project1/RentalProgram/RentalProgram/bin/Debug/net5.0/RentalProgram.runtimeconfig.json
+/Users/donut/Desktop/Project1/RentalProgram/RentalProgram/bin/Debug/net5.0/RentalProgram.runtimeconfig.dev.json
+/Users/donut/Desktop/Project1/RentalProgram/RentalProgram/bin/Debug/net5.0/RentalProgram.dll
+/Users/donut/Desktop/Project1/RentalProgram/RentalProgram/bin/Debug/net5.0/ref/RentalProgram.dll
+/Users/donut/Desktop/Project1/RentalProgram/RentalProgram/bin/Debug/net5.0/RentalProgram.pdb
+/Users/donut/Desktop/Project1/RentalProgram/RentalProgram/obj/Debug/net5.0/RentalProgram.csproj.AssemblyReference.cache
+/Users/donut/Desktop/Project1/RentalProgram/RentalProgram/obj/Debug/net5.0/RentalProgram.GeneratedMSBuildEditorConfig.editorconfig
+/Users/donut/Desktop/Project1/RentalProgram/RentalProgram/obj/Debug/net5.0/RentalProgram.AssemblyInfoInputs.cache
+/Users/donut/Desktop/Project1/RentalProgram/RentalProgram/obj/Debug/net5.0/RentalProgram.AssemblyInfo.cs
+/Users/donut/Desktop/Project1/RentalProgram/RentalProgram/obj/Debug/net5.0/RentalProgram.csproj.CoreCompileInputs.cache
+/Users/donut/Desktop/Project1/RentalProgram/RentalProgram/obj/Debug/net5.0/RentalProgram.dll
+/Users/donut/Desktop/Project1/RentalProgram/RentalProgram/obj/Debug/net5.0/ref/RentalProgram.dll
+/Users/donut/Desktop/Project1/RentalProgram/RentalProgram/obj/Debug/net5.0/RentalProgram.pdb
+/Users/donut/Desktop/Project1/RentalProgram/RentalProgram/obj/Debug/net5.0/RentalProgram.genruntimeconfig.cache

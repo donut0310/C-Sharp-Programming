@@ -1,0 +1,23 @@
+﻿<Properties StartupConfiguration="{0C41F4EA-D4F0-4E18-AEA9-7CFF76EC194F}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="RentalProgram/Program.cs">
+    <Files>
+      <File FileName="RentalProgram/Program.cs" Line="19" Column="24" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="RentalProgram" expanded="True">
+            <Node name="RentalProgram" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.RentalProgram PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
