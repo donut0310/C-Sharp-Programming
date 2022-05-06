@@ -8,7 +8,7 @@ namespace RentalProgram
     {
 
         private Computer[] arrComp; // 모든 컴퓨터의 정보
-        private User[] arrUser; // 모든 유저의 정보
+        private User[] arrUser; // 모든 사용자의 정보
         private int totalUsers; // 총 사용자 수
         public static int totalCost; // 총 지불 금액 
         private int computerCnt;
@@ -18,7 +18,7 @@ namespace RentalProgram
         {
 
         }
-
+       
         // 총 사용자 수 반환
         public int getUserCnt
         {
@@ -31,7 +31,7 @@ namespace RentalProgram
             arrComp = new Computer[num];
         }
 
-        // 컴퓨터 정보 초기화
+        // 각 컴퓨터 정보 초기화
         public void initComputer(int type, int num)
         {
             for (int i = 0; i < num; i++)
@@ -54,15 +54,14 @@ namespace RentalProgram
             }
         }
 
-        // 사용자 정보 초기화
+        // 사용자 수 초기화
         public void initUser(int num)
         {
-            Console.WriteLine(num);
             totalUsers = num;
             arrUser = new User[num];
         }
 
-        // 사용자 타입, 이름 초기화 
+        // 각 사용자 타입, 이름 초기화 
         public void initUser(string type,string name)
         {
             switch (type)
@@ -232,10 +231,8 @@ namespace RentalProgram
         // 총 지불금액 계산, 현재 컴퓨터와 사용자 리스트 출력
         public void PrintList()
         {
-            //StreamWriter sw = new StreamWriter("output.txt");
             StreamWriter sw = File.AppendText("output.txt");
             // 총 지불금액 출력
-            Console.WriteLine("Total Cost: {0}", totalCost); //debug
             sw.WriteLine("Total Cost: {0}",totalCost);
 
             // 컴퓨터 리스트 출력 

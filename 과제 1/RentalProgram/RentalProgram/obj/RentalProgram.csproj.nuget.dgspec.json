@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/donut/Desktop/Project1/RentalProgram/RentalProgram/RentalProgram.csproj": {}
+    "/Users/donut/Desktop/C-Sharp-Programming/과제 1/RentalProgram/RentalProgram/RentalProgram.csproj": {}
   },
   "projects": {
-    "/Users/donut/Desktop/Project1/RentalProgram/RentalProgram/RentalProgram.csproj": {
+    "/Users/donut/Desktop/C-Sharp-Programming/과제 1/RentalProgram/RentalProgram/RentalProgram.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/donut/Desktop/Project1/RentalProgram/RentalProgram/RentalProgram.csproj",
+        "projectUniqueName": "/Users/donut/Desktop/C-Sharp-Programming/과제 1/RentalProgram/RentalProgram/RentalProgram.csproj",
         "projectName": "RentalProgram",
-        "projectPath": "/Users/donut/Desktop/Project1/RentalProgram/RentalProgram/RentalProgram.csproj",
+        "projectPath": "/Users/donut/Desktop/C-Sharp-Programming/과제 1/RentalProgram/RentalProgram/RentalProgram.csproj",
         "packagesPath": "/Users/donut/.nuget/packages/",
-        "outputPath": "/Users/donut/Desktop/Project1/RentalProgram/RentalProgram/obj/",
+        "outputPath": "/Users/donut/Desktop/C-Sharp-Programming/과제 1/RentalProgram/RentalProgram/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/donut/.config/NuGet/NuGet.Config"

@@ -18,7 +18,6 @@ namespace RentalProgram
             ComputerManager cm = new ComputerManager(); // 컴퓨터 관리자 생성
             while (sr.Peek() >= 0) // 입력 파일에 더 이상 읽을 문자가 없을 때 까지 실행 
             {
-                Console.WriteLine("line Number is :{0}", lineNum);
                 // 총 컴퓨터 수 
                 if (lineNum == 1)
                 {

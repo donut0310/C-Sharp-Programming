@@ -1,13 +1,16 @@
 ﻿<Properties StartupConfiguration="{0C41F4EA-D4F0-4E18-AEA9-7CFF76EC194F}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="RentalProgram/Program.cs">
-    <Files>
-      <File FileName="RentalProgram/Program.cs" Line="19" Column="24" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="RentalProgram" expanded="True">
-            <Node name="RentalProgram" expanded="True" />
+            <Node name="RentalProgram" expanded="True">
+              <Node name="Dependencies" expanded="True">
+                <Node name="FrameworkReferences" expanded="True">
+                  <Node name="Microsoft.NETCore.App" selected="True" />
+                </Node>
+              </Node>
+            </Node>
           </Node>
         </State>
       </Pad>
