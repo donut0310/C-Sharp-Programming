@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/Users/donut/Desktop/C-Sharp-Programming/과제 1/RentalProgram/RentalProgram/RentalProgram.csproj": {}
+    "C:\\Users\\donut\\desktop\\C-Sharp-Programming\\과제 1\\RentalProgram\\RentalProgram\\RentalProgram.csproj": {}
   },
   "projects": {
-    "/Users/donut/Desktop/C-Sharp-Programming/과제 1/RentalProgram/RentalProgram/RentalProgram.csproj": {
+    "C:\\Users\\donut\\desktop\\C-Sharp-Programming\\과제 1\\RentalProgram\\RentalProgram\\RentalProgram.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/donut/Desktop/C-Sharp-Programming/과제 1/RentalProgram/RentalProgram/RentalProgram.csproj",
+        "projectUniqueName": "C:\\Users\\donut\\desktop\\C-Sharp-Programming\\과제 1\\RentalProgram\\RentalProgram\\RentalProgram.csproj",
         "projectName": "RentalProgram",
-        "projectPath": "/Users/donut/Desktop/C-Sharp-Programming/과제 1/RentalProgram/RentalProgram/RentalProgram.csproj",
-        "packagesPath": "/Users/donut/.nuget/packages/",
-        "outputPath": "/Users/donut/Desktop/C-Sharp-Programming/과제 1/RentalProgram/RentalProgram/obj/",
+        "projectPath": "C:\\Users\\donut\\desktop\\C-Sharp-Programming\\과제 1\\RentalProgram\\RentalProgram\\RentalProgram.csproj",
+        "packagesPath": "C:\\Users\\donut\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\donut\\desktop\\C-Sharp-Programming\\과제 1\\RentalProgram\\RentalProgram\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/donut/.config/NuGet/NuGet.Config"
+          "C:\\Users\\donut\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -52,7 +54,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/x64/sdk/6.0.104/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

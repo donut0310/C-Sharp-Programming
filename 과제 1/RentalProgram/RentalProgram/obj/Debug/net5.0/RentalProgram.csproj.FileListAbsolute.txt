@@ -13,3 +13,19 @@
 /Users/donut/Desktop/Project1/RentalProgram/RentalProgram/obj/Debug/net5.0/ref/RentalProgram.dll
 /Users/donut/Desktop/Project1/RentalProgram/RentalProgram/obj/Debug/net5.0/RentalProgram.pdb
 /Users/donut/Desktop/Project1/RentalProgram/RentalProgram/obj/Debug/net5.0/RentalProgram.genruntimeconfig.cache
+C:\Users\donut\desktop\C-Sharp-Programming\과제 1\RentalProgram\RentalProgram\bin\Debug\net5.0\RentalProgram.exe
+C:\Users\donut\desktop\C-Sharp-Programming\과제 1\RentalProgram\RentalProgram\bin\Debug\net5.0\RentalProgram.deps.json
+C:\Users\donut\desktop\C-Sharp-Programming\과제 1\RentalProgram\RentalProgram\bin\Debug\net5.0\RentalProgram.runtimeconfig.json
+C:\Users\donut\desktop\C-Sharp-Programming\과제 1\RentalProgram\RentalProgram\bin\Debug\net5.0\RentalProgram.runtimeconfig.dev.json
+C:\Users\donut\desktop\C-Sharp-Programming\과제 1\RentalProgram\RentalProgram\bin\Debug\net5.0\RentalProgram.dll
+C:\Users\donut\desktop\C-Sharp-Programming\과제 1\RentalProgram\RentalProgram\bin\Debug\net5.0\ref\RentalProgram.dll
+C:\Users\donut\desktop\C-Sharp-Programming\과제 1\RentalProgram\RentalProgram\bin\Debug\net5.0\RentalProgram.pdb
+C:\Users\donut\desktop\C-Sharp-Programming\과제 1\RentalProgram\RentalProgram\obj\Debug\net5.0\RentalProgram.csprojAssemblyReference.cache
+C:\Users\donut\desktop\C-Sharp-Programming\과제 1\RentalProgram\RentalProgram\obj\Debug\net5.0\RentalProgram.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\donut\desktop\C-Sharp-Programming\과제 1\RentalProgram\RentalProgram\obj\Debug\net5.0\RentalProgram.AssemblyInfoInputs.cache
+C:\Users\donut\desktop\C-Sharp-Programming\과제 1\RentalProgram\RentalProgram\obj\Debug\net5.0\RentalProgram.AssemblyInfo.cs
+C:\Users\donut\desktop\C-Sharp-Programming\과제 1\RentalProgram\RentalProgram\obj\Debug\net5.0\RentalProgram.csproj.CoreCompileInputs.cache
+C:\Users\donut\desktop\C-Sharp-Programming\과제 1\RentalProgram\RentalProgram\obj\Debug\net5.0\RentalProgram.dll
+C:\Users\donut\desktop\C-Sharp-Programming\과제 1\RentalProgram\RentalProgram\obj\Debug\net5.0\ref\RentalProgram.dll
+C:\Users\donut\desktop\C-Sharp-Programming\과제 1\RentalProgram\RentalProgram\obj\Debug\net5.0\RentalProgram.pdb
+C:\Users\donut\desktop\C-Sharp-Programming\과제 1\RentalProgram\RentalProgram\obj\Debug\net5.0\RentalProgram.genruntimeconfig.cache
