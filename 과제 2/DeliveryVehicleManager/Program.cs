@@ -5,9 +5,6 @@ class Program {
     static void Main(string[] args) {
         string path = String.Format("{0}/INPUT.txt", System.Environment.CurrentDirectory);
         StreamReader sr = new StreamReader(path);
-        StreamWriter sw = new StreamWriter("OUTPUT.txt");
-
-
         DeliveryVehicleManager dvm = new DeliveryVehicleManager(int.Parse(sr.ReadLine()));
         int lineNum = 1;
 
@@ -23,6 +20,7 @@ class Program {
                     dvm.ReadyIn(tmp[1],tmp[2],tmp[3],tmp[4]);
                     break;
                 case "Ready":
+                    dvm.Ready(tmp[1], tmp[2], tmp[3]);
                     break;
                 case "Status":
                     break;
@@ -38,5 +36,6 @@ class Program {
                     break;
             }
         }
+        sr.Close();
     }
 }
