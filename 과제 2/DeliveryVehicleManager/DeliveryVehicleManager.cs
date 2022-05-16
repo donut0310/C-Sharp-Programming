@@ -12,19 +12,6 @@ class DeliveryVehicleManager {
             waitPlaces[i] =new DeliveryVehicle[0];
         }
     }
-
-    // Property
-    public DeliveryVehicle[][] test{
-        get {return this.waitPlaces;}
-    }
-    
-    public int test2{
-        get{return this.waitPlaces.Length;}
-    }
-    public int getPlaces{
-        get {return this.numWaitingPlaces;}
-    }
-
     // --------------- Method --------------- //
 
     // 배달자동차를 특정 대기장소에 배정하는 메소드
