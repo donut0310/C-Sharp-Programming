@@ -2,7 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-//using System.Text.Json;
+using System.Text.Json;
+using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 
 namespace Project
@@ -159,9 +160,6 @@ namespace Project
             return false;
         }
 
-		public void getDailyHistory() { } // 일별 가계부 조회 -> 유형, 장소, 금액, 일 총 입출금 금액
-		public void getMonthlyHistory() { } // 월별 가계부 조회 -> 월 총 입출금 금액, 월 카드 결제 금액, 월 유형 별 총 금액 및 비율
-
          // 총 자산 조회 -> 총 자산, 통장 별 잔고, 카드 별 결제 예정 금액 출력
         //public JsonSerializer getBalance() {
             // 총 자산 구하기
@@ -211,5 +209,36 @@ namespace Project
             Console.WriteLine("---------------------------");
         }
 
-	}
+        // 일별 가계부 조회 -> 유형, 장소, 금액, 일 총 입출금 금액
+        public ArrayList getDailyHistory(string date) 
+        {
+            ArrayList al = new ArrayList();
+            foreach(BankBook bankbook in bankBooks)
+            {
+                string strJson = JsonSerializer.Serialize(bankbook.History, new JsonSerializerOptions() { Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping, WriteIndented = true });
+                al.Add(strJson);
+            }
+
+            Console.WriteLine("일별 가계부 조회");
+            foreach (string item in al)
+            {
+                Console.WriteLine(item);
+            }
+            Console.WriteLine("----------------------------------");
+            return al;
+        }
+        
+        // 월별 가계부 조회 -> 월 총 입출금 금액, 월 카드 결제 금액, 월 유형 별 총 금액 및 비율
+        //public void getMonthlyHistory(string date) {
+        //    ArrayList al = new ArrayList();
+        //    foreach(BankBook bankbook in bankBooks)
+        //    {
+        //        Console.WriteLine(bankbook.History.Keys);
+        //        //string strJson = JsonSerializer.Serialize(bankbook.History, new JsonSerializerOptions() { Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping, WriteIndented = true });
+        //        //al.Add(strJson);
+        //    }
+        //}
+
+
+    }
 }
