@@ -10,11 +10,12 @@ namespace Project
     internal class Card
     {
 		private string cardName; // 카드 이름(별칭)
-		private Hashtable history; // 결제 예정 금액 내역
-								   // Values of object in history => 입출금 유형, 장소, 날짜, 금액, 메모
+		private Dictionary<string, ArrayList> history;
+
 		public Card(string name)
 		{
 			cardName = name;
+			history = new Dictionary<string, ArrayList>();
 		}
 
 		// Properties
@@ -23,9 +24,10 @@ namespace Project
 			get { return cardName; }
 		}
 
-		public Hashtable getHistory
+		public Dictionary<string, ArrayList> History
 		{
 			get { return history; }
+			set { history = value; }
 		}
 	}
 }

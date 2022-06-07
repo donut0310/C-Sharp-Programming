@@ -7,25 +7,36 @@ using System.Threading.Tasks;
 
 namespace Project
 {
-    internal class BankBook
-    {
-		private string name; // 통장 이름(별칭)
-		private int totalAsset; // 총 자산(잔고)
-		private Hashtable history; // 입출금 내역 Hashtable of objects
-								   // Values of object in history => 입출금 유형, 장소, 날짜, 금액, 메모
+	internal class BankBook
+	{
+		private string bankBookName; // 통장 이름(별칭)
+		private string totalAsset; // 총 자산(잔고)
+		private Dictionary<string, ArrayList> history;
 
-		public BankBook(string name, int asset)
+		public BankBook(string name, string asset)
 		{
-			name = name;
+			bankBookName = name;
 			totalAsset = asset;
-			history = null;
+			history = new Dictionary<string, ArrayList>();
 		}
 
 		// Properties
-		public string getBankBookName { get { return name; } }
+		public string getBankBookName { get { return bankBookName; } }
 
-		public int getBankBookAsset{ get { return totalAsset;} }
+		public string getTotalAsset {
+			get { return totalAsset; }
+		}
 
-		public Hashtable getHistory { get { return history; } }
+		public Dictionary<string, ArrayList> History
+		{
+			get { return history; }
+			set { history = value; }
+		}
+
+		// Class Methods
+		public void updateTotalAsset(int value)
+        {
+			totalAsset = (value + Int32.Parse(totalAsset)).ToString();
+        }
 	}
 }
