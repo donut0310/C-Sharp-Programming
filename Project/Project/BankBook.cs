@@ -23,9 +23,7 @@ namespace Project
 		// Properties
 		public string getBankBookName { get { return bankBookName; } }
 
-		public string getTotalAsset {
-			get { return totalAsset; }
-		}
+		public string getTotalAsset { get { return totalAsset; } }
 
 		public Dictionary<string, ArrayList> History
 		{
