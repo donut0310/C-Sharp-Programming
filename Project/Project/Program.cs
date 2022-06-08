@@ -38,7 +38,7 @@ class Program {
         // 카드 별 조회 테스트 // return string, format => json
         acb.getCardsInfo(); 
 
-        // 총 자산 조회 테스트
+        // 총 자산 조회 테스트 // return string, format => json
         acb.getBalance();
 
         // 일별 가계부 조회 테스트 // return string, format => ArrayList of object(json)
