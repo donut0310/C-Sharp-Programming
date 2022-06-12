@@ -160,7 +160,7 @@ namespace Project
         }
 
          // 총 자산 조회 -> 총 자산, 통장 별 잔고, 카드 별 결제 예정 금액 출력
-        public string getBalance() {
+        public Dictionary<string, object> getBalance() {
             // 총 자산 구하기 => 전체 통장
             // 통장 별 잔고 구하기
             // 카드 별 결제 예정 금액 구하기
@@ -193,12 +193,7 @@ namespace Project
             obj.Add("bankbooks",dictBankBook);
             obj.Add("cards",dictCard);
 
-            string json = JsonSerializer.Serialize(obj, new JsonSerializerOptions() { Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping, WriteIndented = true });
-
-            Console.WriteLine("** 총 자산 조회 **");
-            Console.WriteLine(json);
-            Console.WriteLine("------------------------------");
-            return json;
+            return obj;
         }
 
         // 통장 별 조회 => 통장명, 잔고

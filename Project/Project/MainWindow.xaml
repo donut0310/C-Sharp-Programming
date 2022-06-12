@@ -1,0 +1,439 @@
+﻿<Window x:Class="Project.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:sys="clr-namespace:System;assembly=mscorlib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:Project" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:system="clr-namespace:System;assembly=mscorlib" Background="Transparent" TextElement.Foreground="{DynamicResource MaterialDesignBody}" TextElement.FontWeight="Medium" TextElement.FontSize="14" FontFamily="/Project;component/Fonts/#Pretendard Variable" mc:Ignorable="d" WindowStyle="None" Title="가계부 프로그램" Height="720" Width="480" AllowsTransparency="True" ResizeMode="NoResize" MouseLeftButtonDown="Window_MouseLeftButtonDown">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="70" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Background="#FF4A6572">
+            <Label Foreground="White" FontSize="12" Margin="20, 0" HorizontalAlignment="Center" VerticalAlignment="Center">가계부 프로그램</Label>
+            <StackPanel Orientation="Horizontal" Background="{x:Null}" HorizontalAlignment="Right">
+                <Button Click="btn_WindowClose" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" Foreground="White" BorderBrush="{x:Null}">
+                    <materialDesign:PackIcon Kind="Power" />
+                </Button>
+            </StackPanel>
+        </Grid>
+
+        <materialDesign:Card x:Name="Grid_AssetManagement" Visibility="Collapsed" Grid.Row="1">
+            <TabControl materialDesign:ColorZoneAssist.Mode="PrimaryLight" Style="{StaticResource MaterialDesignFilledTabControl}">
+                <TabItem>
+                    <TabItem.Header>
+                        <TextBlock FontSize="16" Text="자산 조회" />
+                    </TabItem.Header>
+                    <Grid Margin="15">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}" Text="자산 조회" />
+                            <Separator Margin="0 0 0 20" />
+                            <Label FontSize="24" Name="label_TotalAssets" />
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+                <TabItem>
+                    <TabItem.Header>
+                        <TextBlock FontSize="16" Text="통장 관리" />
+                    </TabItem.Header>
+                    <Grid Margin="15">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}" Text="등록된 통장 목록" />
+                            <Separator Margin="0 0 0 20" />
+                            <DataGrid Name="dg_BankBooks" AutoGenerateColumns="False" IsReadOnly="True">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="통장 이름" Binding="{Binding Key}" />
+                                    <DataGridTextColumn Header="통장 잔고" Binding="{Binding Value}" />
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </StackPanel>
+                        <Button
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom"
+                        Margin="0 0 28 20"
+                        Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
+                        CommandTarget="{Binding ElementName=Dialog_AddBankBook}"
+                        Style="{StaticResource MaterialDesignFloatingActionAccentButton}"
+                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                        Content="{materialDesign:PackIcon Kind=Plus, Size=48}" />
+                        <materialDesign:DialogHost
+                    Name="Dialog_AddBankBook"
+                    DialogClosing="DialogHost_DialogClosing_AddBankBook"
+                    DialogTheme="Inherit">
+                            <materialDesign:DialogHost.DialogContent>
+                                <StackPanel Margin="16">
+                                    <TextBlock Text="통장 이름"/>
+
+                                    <TextBox
+                                Margin="0 8 0 0"
+                                HorizontalAlignment="Stretch"
+                                x:Name="text_BankBookName"/>
+                                    <TextBlock Text="통장 잔고"/>
+                                    <TextBox
+                                Margin="0 8 0 0"
+                                HorizontalAlignment="Stretch"
+                                x:Name="text_BankBookAsset"/>
+
+                                    <StackPanel
+                                Orientation="Horizontal"
+                                HorizontalAlignment="Right">
+                                        <Button
+                                    Style="{StaticResource MaterialDesignFlatButton}"
+                                    IsDefault="True"
+                                    Margin="0 8 8 0"
+                                    Content="확인"
+                                    Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}">
+                                            <Button.CommandParameter>
+                                                <system:Boolean>True</system:Boolean>
+                                            </Button.CommandParameter>
+                                        </Button>
+
+                                        <Button
+                                    Style="{StaticResource MaterialDesignFlatButton}"
+                                    IsCancel="True"
+                                    Margin="0 8 8 0"
+                                    Content="취소"
+                                    Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}">
+                                            <Button.CommandParameter>
+                                                <system:Boolean>False</system:Boolean>
+                                            </Button.CommandParameter>
+                                        </Button>
+                                    </StackPanel>
+                                </StackPanel>
+                            </materialDesign:DialogHost.DialogContent>
+                        </materialDesign:DialogHost>
+
+                        
+                    </Grid>
+                </TabItem>
+                <TabItem>
+                    <TabItem.Header>
+                        <TextBlock FontSize="16" Text="카드 관리" />
+                    </TabItem.Header>
+                    <Grid Margin="15">
+                        <StackPanel Orientation="Vertical">
+                            <TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}" Text="등록된 카드 목록" />
+                            <Separator Margin="0 0 0 20" />
+                            <DataGrid Name="dg_Cards" AutoGenerateColumns="False" IsReadOnly="True">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="카드 이름" Binding="{Binding Key}" />
+                                    <DataGridTextColumn Header="결제 예정 금액" Binding="{Binding Value}" />
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </StackPanel>
+                        <Button
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Bottom"
+                        Margin="0 0 28 20"
+                        Command="{x:Static materialDesign:DialogHost.OpenDialogCommand}"
+                        CommandTarget="{Binding ElementName=Dialog_AddCard}"
+                        Style="{StaticResource MaterialDesignFloatingActionAccentButton}"
+                        IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                        Content="{materialDesign:PackIcon Kind=Plus, Size=48}" />
+                        <materialDesign:DialogHost
+                    Name="Dialog_AddCard"
+                    DialogClosing="DialogHost_DialogClosing_AddCard"
+                    DialogTheme="Inherit">
+                            <materialDesign:DialogHost.DialogContent>
+                                <StackPanel Margin="16">
+                                    <TextBlock Text="카드 이름"/>
+                                    <TextBox
+                                    Style="{StaticResource MaterialDesignTextBox}"
+                                    Margin="0 8 0 0"
+                                    HorizontalAlignment="Stretch"
+                                    x:Name="text_CardName"/>
+
+                                    <StackPanel
+                                Orientation="Horizontal"
+                                HorizontalAlignment="Right">
+                                        <Button
+                                    Style="{StaticResource MaterialDesignFlatButton}"
+                                    IsDefault="True"
+                                    Margin="0 8 8 0"
+                                    Content="확인"
+                                    Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}">
+                                            <Button.CommandParameter>
+                                                <system:Boolean>True</system:Boolean>
+                                            </Button.CommandParameter>
+                                        </Button>
+
+                                        <Button
+                                    Style="{StaticResource MaterialDesignFlatButton}"
+                                    IsCancel="True"
+                                    Margin="0 8 8 0"
+                                    Content="취소"
+                                    Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}">
+                                            <Button.CommandParameter>
+                                                <system:Boolean>False</system:Boolean>
+                                            </Button.CommandParameter>
+                                        </Button>
+                                    </StackPanel>
+                                </StackPanel>
+                            </materialDesign:DialogHost.DialogContent>
+                        </materialDesign:DialogHost>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+        </materialDesign:Card>
+
+        <materialDesign:Card x:Name="Grid_TransferManagement" Visibility="Collapsed" Grid.Row="1">
+            <TabControl materialDesign:ColorZoneAssist.Mode="PrimaryLight" Style="{StaticResource MaterialDesignFilledTabControl}">
+                <TabItem>
+                    <TabItem.Header>
+                        <TextBlock FontSize="16" Text="입금" />
+                    </TabItem.Header>
+                    <Grid Margin="15">
+                        <StackPanel Margin="16" Orientation="Vertical">
+                            <TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}" Text="입금 하기" />
+                            <Separator Margin="0 0 0 20" />
+                            <TextBlock Text="통장 이름"/>
+                            <TextBox
+                                    Style="{StaticResource MaterialDesignTextBox}"
+                                    Margin="0 8 0 0"
+                                    HorizontalAlignment="Stretch"
+                                    x:Name="text_deposit_BankAccountName"/>
+
+                            <TextBlock Text="유형"/>
+                            <TextBox
+                                    Style="{StaticResource MaterialDesignTextBox}"
+                                    Margin="0 8 0 0"
+                                    HorizontalAlignment="Stretch"
+                                    x:Name="text_deposit_Category"/>
+
+                            <TextBlock Text="장소"/>
+                            <TextBox
+                                    Style="{StaticResource MaterialDesignTextBox}"
+                                    Margin="0 8 0 0"
+                                    HorizontalAlignment="Stretch"
+                                    x:Name="text_deposit_Place"/>
+
+                            <TextBlock Text="금액"/>
+                            <TextBox
+                                    Style="{StaticResource MaterialDesignTextBox}"
+                                    Margin="0 8 0 0"
+                                    HorizontalAlignment="Stretch"
+                                    x:Name="text_deposit_Price"/>
+
+                            <TextBlock Text="메모"/>
+                            <TextBox
+                                    Style="{StaticResource MaterialDesignTextBox}"
+                                    Margin="0 8 0 0"
+                                    HorizontalAlignment="Stretch"
+                                    x:Name="text_deposit_Memo"/>
+
+                            <StackPanel
+                                Orientation="Horizontal"
+                                HorizontalAlignment="Right">
+                                <Button
+                                    Click="btn_Deposit"
+                                    Style="{StaticResource MaterialDesignFlatButton}"
+                                    IsDefault="True"
+                                    Margin="0 8 8 0"
+                                    Content="확인" />
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+                <TabItem>
+                    <TabItem.Header>
+                        <TextBlock FontSize="16" Text="출금" />
+                    </TabItem.Header>
+                    <Grid Margin="15">
+                        <StackPanel Margin="16" Orientation="Vertical">
+                            <TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}" Text="출금 하기" />
+                            <Separator Margin="0 0 0 20" />
+                            <TextBlock Text="통장 이름"/>
+                            <TextBox
+                                    Style="{StaticResource MaterialDesignTextBox}"
+                                    Margin="0 8 0 0"
+                                    HorizontalAlignment="Stretch"
+                                    x:Name="text_withdrawal_BankAccountName"/>
+
+                            <TextBlock Text="유형"/>
+                            <TextBox
+                                    Style="{StaticResource MaterialDesignTextBox}"
+                                    Margin="0 8 0 0"
+                                    HorizontalAlignment="Stretch"
+                                    x:Name="text_withdrawal_Category"/>
+
+                            <TextBlock Text="장소"/>
+                            <TextBox
+                                    Style="{StaticResource MaterialDesignTextBox}"
+                                    Margin="0 8 0 0"
+                                    HorizontalAlignment="Stretch"
+                                    x:Name="text_withdrawal_Place"/>
+
+                            <TextBlock Text="금액"/>
+                            <TextBox
+                                    Style="{StaticResource MaterialDesignTextBox}"
+                                    Margin="0 8 0 0"
+                                    HorizontalAlignment="Stretch"
+                                    x:Name="text_withdrawal_Price"/>
+
+                            <TextBlock Text="메모"/>
+                            <TextBox
+                                    Style="{StaticResource MaterialDesignTextBox}"
+                                    Margin="0 8 0 0"
+                                    HorizontalAlignment="Stretch"
+                                    x:Name="text_withdrawal_Memo"/>
+
+                            <StackPanel
+                                Orientation="Horizontal"
+                                HorizontalAlignment="Right">
+                                <Button
+                                    Click="btn_WithDrawal"
+                                    Style="{StaticResource MaterialDesignFlatButton}"
+                                    IsDefault="True"
+                                    Margin="0 8 8 0"
+                                    Content="확인" />
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+        </materialDesign:Card>
+
+        <materialDesign:Card x:Name="Grid_ShowAccountBook" Visibility="Collapsed" Grid.Row="1">
+            <TabControl materialDesign:ColorZoneAssist.Mode="PrimaryLight" Style="{StaticResource MaterialDesignFilledTabControl}">
+                <TabItem>
+                    <TabItem.Header>
+                        <TextBlock FontSize="16" Text="일별 가계부 조회" />
+                    </TabItem.Header>
+                    <Grid Margin="15">
+                        <ScrollViewer VerticalScrollBarVisibility="Auto">
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}" Text="일별 가계부" />
+                                <Separator Margin="0 0 0 20" />
+                                <StackPanel Orientation="Horizontal">
+                                    <DatePicker Name="text_daily_DatePicker" Width="150" Margin="0 0 0 20" SelectedDate="{x:Static sys:DateTime.Now}">
+                                        <DatePicker.Resources>
+                                            <Style TargetType="{x:Type DatePickerTextBox}">
+                                                <Setter Property="Control.Template">
+                                                    <Setter.Value>
+                                                        <ControlTemplate>
+                                                            <TextBox Name="text_datepicker" 
+                                        Text="{Binding Path=SelectedDate, RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}}" />
+                                                        </ControlTemplate>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </Style>
+                                        </DatePicker.Resources>
+                                    </DatePicker>
+                                    <Button 
+                                    Click="btn_ShowAccountBookByDays"
+                                    Style="{StaticResource MaterialDesignFlatButton}"
+                                    IsDefault="True"
+                                    Margin="0 0 0 20"
+                                    Content="확인" />
+                                </StackPanel>
+                                <DataGrid Name="dg_AccountBookByDays" AutoGenerateColumns="False" IsReadOnly="True">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="통장 이름" Binding="{Binding [bankbook]}" />
+                                        <DataGridTextColumn Header="유형" Binding="{Binding [category]}" />
+                                        <DataGridTextColumn Header="장소" Binding="{Binding [place]}" />
+                                        <DataGridTextColumn Header="금액" Binding="{Binding [price]}" />
+                                        <DataGridTextColumn Header="메모" Binding="{Binding [memo]}" />
+                                        <!-- <DataGridTextColumn Header="datetime" Binding="{Binding [datetime]}" /> -->
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </StackPanel>
+                        </ScrollViewer>
+                    </Grid>
+                </TabItem>
+                <TabItem>
+                    <TabItem.Header>
+                        <TextBlock FontSize="16" Text="월별 가계부 조회" />
+                    </TabItem.Header>
+                    <Grid Margin="15">
+                        <ScrollViewer VerticalScrollBarVisibility="Auto">
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Style="{StaticResource MaterialDesignHeadline4TextBlock}" Text="월별 가계부" />
+                                <Separator Margin="0 0 0 20" />
+                                <StackPanel Orientation="Horizontal">
+                                    <DatePicker Name="text_monthly_DatePicker" Width="150" Margin="0 0 0 20" SelectedDate="{x:Static sys:DateTime.Now}">
+                                        <DatePicker.Resources>
+                                            <Style TargetType="{x:Type DatePickerTextBox}">
+                                                <Setter Property="Control.Template">
+                                                    <Setter.Value>
+                                                        <ControlTemplate>
+                                                            <TextBox Name="text_datepicker" 
+                                        Text="{Binding Path=SelectedDate, RelativeSource={RelativeSource AncestorType={x:Type DatePicker}}}" />
+                                                        </ControlTemplate>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </Style>
+                                        </DatePicker.Resources>
+                                    </DatePicker>
+                                    <Button 
+                                    Click="btn_ShowAccountBookByMonths"
+                                    Style="{StaticResource MaterialDesignFlatButton}"
+                                    IsDefault="True"
+                                    Margin="0 0 0 20"
+                                    Content="확인" />
+                                </StackPanel>
+                                <Label FontSize="18" Name="label_totalDeposit" />
+                                <Label FontSize="18" Name="label_totalWithdraw" />
+                                <Label FontSize="18" Name="label_cardPayAmt" />
+                            </StackPanel>
+                        </ScrollViewer>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+        </materialDesign:Card>
+
+        <materialDesign:Card x:Name="Grid_ShowDevelopers" Visibility="Collapsed" Grid.Row="1">
+            <TabControl materialDesign:ColorZoneAssist.Mode="PrimaryLight" Style="{StaticResource MaterialDesignFilledTabControl}">
+                <TabItem>
+                    <TabItem.Header>
+                        <TextBlock FontSize="16" Text="앱 정보" />
+                    </TabItem.Header>
+                    <Grid Margin="15">
+                        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Label Content="가계부 프로그램 (v.1.0.0)" HorizontalContentAlignment="Center" />
+                            <Separator Margin="0 0 0 20" />
+                            <Label Content="세종대학교 컴퓨터공학과 15011048 배경준" />
+                            <Label Content="세종대학교 컴퓨터공학과 16011088 김영률" />
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+        </materialDesign:Card>
+
+        <materialDesign:Card Grid.Row="2" Height="Auto">
+            <TabControl HorizontalContentAlignment="Center" Background="#FF232F34" Foreground="White" materialDesign:NavigationRailAssist.SelectionCornerRadius="20" materialDesign:NavigationRailAssist.ShowSelectionBackground="True" Style="{StaticResource MaterialDesignNavigationRailTabControl}" TabStripPlacement="Bottom">
+                <TabItem Margin="6, 0" MouseLeftButtonUp="Navbar_Btn_AssetManagement">
+                    <TabItem.Header>
+                        <StackPanel Width="auto" Height="auto">
+                            <materialDesign:PackIcon Width="32" Height="32" HorizontalAlignment="Center" Kind="Wallet" Background="{x:Null}" Foreground="White" />
+                            <Label HorizontalAlignment="Center" Content="자산 관리" Foreground="White" />
+                        </StackPanel>
+                    </TabItem.Header>
+                </TabItem>
+                <TabItem MouseLeftButtonUp="Navbar_Btn_TransferManagement">
+                    <TabItem.Header>
+                        <StackPanel Width="auto" Height="auto">
+                            <materialDesign:PackIcon Width="32" Height="32" HorizontalAlignment="Center" Kind="BankTransfer" Background="{x:Null}" Foreground="White" />
+                            <TextBlock HorizontalAlignment="Center" Text="입출금 관리" Foreground="White" />
+                        </StackPanel>
+                    </TabItem.Header>
+                </TabItem>
+                <TabItem MouseLeftButtonUp="Navbar_Btn_ShowAccountBook">
+                    <TabItem.Header>
+                        <StackPanel Width="auto" Height="auto">
+                            <materialDesign:PackIcon Width="32" Height="32" HorizontalAlignment="Center" Kind="BookOpenPageVariant" Background="{x:Null}" Foreground="White"  />
+                            <TextBlock HorizontalAlignment="Center" Text="가계부 조회" Foreground="White" />
+                        </StackPanel>
+                    </TabItem.Header>
+                </TabItem>
+                <TabItem MouseLeftButtonUp="Navbar_Btn_ShowDevelopers">
+                    <TabItem.Header>
+                        <StackPanel Width="auto" Height="auto">
+                            <materialDesign:PackIcon Width="32" Height="32" HorizontalAlignment="Center" Kind="Information" Background="{x:Null}" Foreground="White"  />
+                            <TextBlock HorizontalAlignment="Center" Text="앱 정보" Foreground="White" />
+                        </StackPanel>
+                    </TabItem.Header>
+                </TabItem>
+            </TabControl>
+        </materialDesign:Card>
+    </Grid>
+</Window>
