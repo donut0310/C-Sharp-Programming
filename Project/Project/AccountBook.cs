@@ -219,9 +219,11 @@ namespace Project
             foreach (Card card in cards)
             {
                 string date = DateTime.Now.ToString("yyyy-MM");
+                Boolean flag = false;
                 foreach(string key in card.History.Keys){
                     string target = key.Substring(0,7);
                     if(target==date){
+                        flag=true;
                         foreach (Dictionary<string, string> items in card.History[key]){
                             if (!dict.ContainsKey(items["card"])){
                                     dict[items["card"]] = Int32.Parse(items["price"]);
@@ -231,8 +233,10 @@ namespace Project
                         }
                     }
                 }
+                if(!flag){
+                    dict[card.getCardName] = 0;
+                }
             }
-
             return dict;
         }
 
