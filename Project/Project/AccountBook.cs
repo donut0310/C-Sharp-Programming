@@ -13,7 +13,7 @@ namespace Project
         ArrayList cards = new ArrayList();
         ArrayList bankBooks = new ArrayList();
 
-		public AccountBook(){}
+        public AccountBook() { }
 
         // 카드 등록
         public void enrollCard(string name) {
@@ -202,25 +202,19 @@ namespace Project
         }
 
         // 통장 별 조회 => 통장명, 잔고
-        public string getBankBookInfo() {
+        public Dictionary<string, object> getBankBookInfo() {
             Dictionary<string,object> dict = new Dictionary<string, object>();
 
             foreach (BankBook bankbook in bankBooks)
             {
                 dict[bankbook.getBankBookName] = Int32.Parse(bankbook.getTotalAsset);
             }
-
-            string json = JsonSerializer.Serialize(dict, new JsonSerializerOptions() { Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping, WriteIndented = true });
-            
-            Console.WriteLine("** 통장 별 조회 **");
-            Console.WriteLine(json);
-            Console.WriteLine("-------------------------");
         
-            return json;
+            return dict;
         }
 
         // 카드 별 조회 => 카드 명, 결제 예정 금액 (당월)
-        public string getCardsInfo() {
+        public Dictionary<string, int> getCardsInfo() {
             var dict = new Dictionary<string, int>();
             foreach (Card card in cards)
             {
@@ -239,17 +233,11 @@ namespace Project
                 }
             }
 
-            string json = JsonSerializer.Serialize(dict, new JsonSerializerOptions() { Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping, WriteIndented = true });
-
-            Console.WriteLine("** 카드 별 조회 **");
-            Console.WriteLine(json);
-            Console.WriteLine("-------------------------");
-        
-            return json;
+            return dict;
         }
 
         // 일별 가계부 조회 -> 유형, 장소, 금액, 일 총 입출금 금액
-        public string getDailyHistory(string date) 
+        public ArrayList getDailyHistory(string date) 
         {
             ArrayList al = new ArrayList();
             foreach(BankBook bankbook in bankBooks)
@@ -262,15 +250,12 @@ namespace Project
                     }
                 }
             }
-            string json = JsonSerializer.Serialize(al, new JsonSerializerOptions() { Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping, WriteIndented = true });
-            Console.WriteLine("** 일별 가계부 조회 **");
-            Console.WriteLine(json);
-            Console.WriteLine("----------------------------------");
-            return json;
+
+            return al;
         }
 
         // 월별 가계부 조회 -> 월 총 입출금 금액, 월 카드 결제 금액, 월 유형 별 총 금액 및 비율
-        public string getMonthlyHistory(string date)
+        public Dictionary<string, object> getMonthlyHistory(string date)
         {
             ArrayList al = new ArrayList();
             int mTotaldeposit = 0;
@@ -324,12 +309,7 @@ namespace Project
             dict.Add("mCardPayAmt", mCardPayAmt);
             dict.Add("mTypeAmt",mTypeAmt);
 
-            string json = JsonSerializer.Serialize(dict, new JsonSerializerOptions() { Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping, WriteIndented = true });
-            
-            Console.WriteLine("** 월 별 가계부 조회 **");
-            Console.WriteLine(json);
-            Console.WriteLine("------------------------------");
-            return json;
+            return dict;
         }
     }
 }
